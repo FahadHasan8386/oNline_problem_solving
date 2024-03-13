@@ -13,13 +13,14 @@ int main ()
         if (a == '4' || a == '7'){
 
             cnt++;
-            if (cnt == number.size()){
-
-                cout << "YES";
-                return 0;
-            }
-
         }
     }
-    cout << "NO";
+        if (cnt == 4 || cnt == 7){
+            cout << "YES";
+        }
+        else
+        {
+            cout << "NO";
+        }
+
 }
