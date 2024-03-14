@@ -4,14 +4,19 @@ int main ()
 {
     int n1 ,n2;
         cin >> n1 >> n2;
+    int i = 1 ;
+    int count = 0;
 
-      if((n1 * n2) % 2 == 0)
-    {
-        cout << "Akshat";
+    for (;;){
+        if(n1 - i == 0) break;
+        if(n2 - i == 0) break;
+        i++;
+        count++;
     }
-
-    else {
+    if(count % 2 == 0 )
+    {
+        cout << "Akshat ";
+    }else {
         cout << "Malvika";
     }
-
 }
