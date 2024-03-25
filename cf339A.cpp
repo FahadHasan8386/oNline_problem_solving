@@ -8,12 +8,17 @@ int main()
     sort(num.begin(),num.end());
 
     string sortednum;
-    for (int i =0 ; i < num.size() ; i++)
-    {
-        sortednum += num[i];
-        if (i % 2 != 0){
-            sortednum += '+';
-        }
+    for (auto c : num){
+
+            if(isdigit(c)){
+
+                sortednum += c;
+                sortednum += '+';
+            }
     }
-    cout << sortednum;
+    sortednum.pop_back();
+
+        cout << sortednum;
+
+    return 0;
 }
