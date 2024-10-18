@@ -1,20 +1,22 @@
 ///In the name of Allah
 
 #include <bits/stdc++.h>
-using namespace std ;
+using namespace std;
 
 int main ()
 {
-    long  long int n;
+    long long int n;
     cin >> n;
 
-    int arr[n];
+    vector<int> arr(n);
     long long int cnt = 0;
-    for (int i = 0 ; i < n ;i++)
+
+    for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    for(int i = 1 ; i < n-1 ;i++)
+
+    for(int i = 1; i < n; i++)
     {
         if(arr[i] < arr[i-1])
         {
@@ -22,5 +24,8 @@ int main ()
             arr[i] = arr[i-1];
         }
     }
+
     cout << cnt << endl;
+
+    return 0;
 }

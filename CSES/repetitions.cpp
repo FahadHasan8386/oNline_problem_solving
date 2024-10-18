@@ -1,26 +1,26 @@
-///In the name of Allah
-
 #include <bits/stdc++.h>
-using namespace std ;
+using namespace std;
 
 int main ()
 {
     string s;
     cin >> s;
 
-    map<char , int>mp;
+    int max_len = 1;
+    int current_len = 1;
 
-    for (int i = 0 ; i < s.size();i++)
+    for (int i = 1; i < s.size(); i++)
     {
-        mp[s[i]]++;
-    }
-    int maxcnt = 0;
-    for (auto it : mp)
-    {
-        if(it.second > maxcnt)
+        if(s[i] == s[i-1])
         {
-            maxcnt = it.second;
+            current_len++;
+        }
+        else{
+            max_len = max(max_len ,current_len);
+            current_len = 1;
         }
     }
-    cout << maxcnt << endl;
+    max_len = max(max_len ,current_len);
+
+    cout << max_len << endl;
 }
