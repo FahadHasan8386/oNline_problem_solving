@@ -10,22 +10,39 @@ int main()
 
     while (t--)
     {
-        int n ;
+        int n;
         cin >> n;
         string s;
         cin >> s;
 
-
-        if(s[0] == '1' || s[0] == '1' && s[n] == '1')
+        for (int i = 1; i < s.size(); i++)
         {
-            cout << "YES" <<endl;
+            if (s[i] == '0' && s[i - 1] == '0')
+            {
+                s.erase(i, 1);
+                i--;
+            }
         }
-        else
+        int cnt0 = 0 , cnt1 = 0;
+        for(int i = 0 ; i < s.size();i++)
         {
-            cout << "NO" <<endl;
+            if(s[i] == '1')
+            {
+                cnt1++;
+            }
+            else{
+                cnt0++;
+            }
+
         }
-
-
-
+        if(cnt1 > cnt0)
+        {
+            cout << "YES" << endl;
+        }
+        else{
+            cout << "NO" << endl;
+        }
     }
+
+    return 0;
 }
