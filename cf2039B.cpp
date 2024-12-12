@@ -14,7 +14,7 @@ int main() {
         long long f = 0;
         int n = s.size();
 
-        // Check for consecutive duplicate characters
+
         for (int i = 0; i < n - 1; i++) {
             if (s[i] == s[i + 1]) {
                 cout << s[i] << s[i] << endl;
@@ -23,14 +23,16 @@ int main() {
             }
         }
 
-        // Check for triplet of unique characters
+
         if (f == 0) {
             for (int i = 0; i < n - 2; i++) {
-                set<char> st;
+                set <char> st;
                 st.insert(s[i]);
                 st.insert(s[i + 1]);
                 st.insert(s[i + 2]);
-                if (st.size() == 3) {
+
+                if (st.size() == 3)
+                {
                     cout << s[i] << s[i + 1] << s[i + 2] << endl;
                     f = 1;
                     break;
@@ -38,7 +40,6 @@ int main() {
             }
         }
 
-        // If neither condition is satisfied
         if (f == 0) {
             cout << -1 << endl;
         }
