@@ -119,48 +119,38 @@ void faltu( T arg, const hello &... rest) {
 int main()
 {
     optimize();
+    int tt;
+    cin >> tt;
+
+    while(tt--)
+    {
         int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> v[i];
-    }
-    int m;
-    cin >> m;
+        cin >> n;
+        string s;
+        cin >> s;
 
+        bool win = 0;
 
-    vector<ll> pref(n + 1, 0);
-    for (int i = 0; i < n; i++)
-    {
-        pref[i + 1] = pref[i] + v[i];
-    }
-
-
-    vector<int> sorted_v = v;
-    sort(sorted_v.begin(), sorted_v.end());
-
-    vector<ll> sort_pref(n + 1, 0);
-    for (int i = 0; i < n; i++)
-    {
-        sort_pref[i + 1] = sort_pref[i] + sorted_v[i];
-    }
-
-    while (m--)
-    {
-        int t, l, r;
-        cin >> t >> l >> r;
-
-        if (t == 1)
+        if(s[0] == '1' || s[n-1] == '1')
         {
-
-            cout << pref[r] - pref[l - 1] << endl;
+            win = 1;
         }
-        else
+        else{
+            for(int i = 1 ; i < n-1 ;i++)
+            {
+                if(s[i] == '1' && s[i+1] == '1')
+                {
+                    win = 1;
+                }
+            }
+        }
+        if(win)
         {
-            cout << sort_pref[r] - sort_pref[l-1] << endl;
+            cout << "YES" << endl;
+        }
+        else{
+            cout << "NO" << endl;
         }
     }
-
-    return 0;
+        return 0;
 }
