@@ -11,21 +11,13 @@ int main() {
         cin >> n;
 
         vector<int> v(n);
-        int sum = 0;
 
         for (int i = 0; i < n; i++) {
             cin >> v[i];
-            sum += v[i];
         }
 
-        if (sum % n != 0) {
-            cout << "NO" << endl;
-            continue;
-        }
-
-        long long num = sum / n;
-        int oddSize = n / 2;
-        int evenSize = (n + 1) / 2;
+        long long oddSize = n / 2;
+        long long evenSize = (n + 1) / 2;
 
         long long oddS = 0, evenS = 0;
         for (int i = 0; i < n; i++) {
@@ -37,7 +29,7 @@ int main() {
         }
 
 
-        if (oddS == oddSize * num && evenS == evenSize * num) {
+        if (oddS % oddSize == 0 && evenS % evenSize == 0 && (oddS / oddSize == evenS / evenSize)) {
             cout << "YES" << endl;
         } else {
             cout << "NO" << endl;
