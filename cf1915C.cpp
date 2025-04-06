@@ -1,26 +1,14 @@
-///IN the name of Allah
+/// IN the name of Allah
 
 #include <bits/stdc++.h>
 using namespace std;
 
 bool isPerfectSquare(long long sum) {
-    if (sum < 0) return false;
-
-    long long low = 0, high = sum;
-
-    while (low <= high) {
-        long long mid = low + (high - low) / 2;
-        long long square = mid * mid;
-
-        if (square == sum) {
+    for (long long i = 1; i * i <= sum; i++) {
+        if (i * i == sum) {
             return true;
-        } else if (square < sum) {
-            low = mid + 1;
-        } else {
-            high = mid - 1;
         }
     }
-
     return false;
 }
 
