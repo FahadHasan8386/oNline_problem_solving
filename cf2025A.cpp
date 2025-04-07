@@ -1,33 +1,26 @@
-///In the name of Allah
-
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    int tt;
-    cin >> tt;
+    int t;
+    cin >> t;
 
-    while (tt--) {
-        string s, t;
-        cin >> s >> t;
+    while (t--) {
+        string s, m;
+        cin >> s >> m;
 
-        int cnt = 0;
-        int n = s.size();
-        int m = t.size();
+        long long ans = s.size() + m.size();
+        long long max1 = ans;
 
-        // Iterate up to the smaller string size
-        for (int i = 0; i < min(n, m); i++) {
-            if (s[i] == t[i]) {
-                if (n < m) {
-                    cnt = m + 1; // Add +1 based on the given logic
-                }
-            } else {
-                cnt = n + m; // Sum of sizes if mismatch occurs
-            }
+        long long l = 0, r = 0;
+
+        while (l < s.size() && r < m.size() && s[l] == m[r]) {
+            ans -= 1;
+            l++;
+            r++;
         }
 
-        // Output the result
-        cout << cnt << endl;
+        cout << min(ans + 1, max1) << endl;
     }
 
     return 0;
