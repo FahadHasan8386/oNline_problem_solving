@@ -15,11 +15,23 @@ void fahad() {
     ll n , m ,k;
     cin >> n >> m >>k;
 
-    ll max_brench_length = (k + n - 1)/n;
+    ll l = 0 , r = m;
+    ll ans = 0;
+    while (l + 1 < r) {
+        ll mid = (l + r) / 2;
 
-    max_brench_length = min (max_brench_length , m);
+        ll blocks = m / (mid + 1);
+        ll extra = m % (mid + 1);
+        ll total = blocks * mid + extra;
 
-    cout << max_brench_length << endl;
+        if (total * n >= k) {
+            r = mid;
+        } else {
+            l = mid;
+        }
+    }
+
+    cout << r << endl;
 }
 
 int main() {
