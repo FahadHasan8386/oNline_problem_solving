@@ -6,17 +6,19 @@ void solve ()
 {
     long long l ,r;
     cin >> l >> r;
-    long long max_len = 0;
-    long long min_dif = 1;
-    long long current_sum = 0;
+    long long length = 0;
+    long long current = l;
+    long long diff = 1;
 
-    while(r-1 >= current_sum+min_dif)
-    {
-        max_len++;
-        current_sum += min_dif;
-        min_dif++;
+    // Keep adding increasing differences while staying within bounds
+    while (current + diff <= r) {
+        current += diff;
+        diff++;
+        length++;
     }
-    cout << max_len + 1 << endl;
+
+    // Include the starting element
+    cout << length + 1 << endl;
 }
 
 int main ()
