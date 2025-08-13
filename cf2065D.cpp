@@ -15,27 +15,30 @@ void fahad() {
     int n , m;
     cin >> n >> m;
 
-    vector<int>v(n ,vector<int>(m));
-    ll sum = 0, sum2 = 0;
+    int arr [n][m];
+    ll sum = arr[0][0], sum2 = 0;
     for(int i = 0 ; i < n ;i++)
     {
         for(int j = 0 ; j < m ;j++)
         {
-            cin >> v[i][j];
+            cin >> arr[i][j];
         }
     }
-    for(int i = 0 ; i < n ;i++)
+    vector<ll>v;
+
+    for(int i = 0 ; i < n-1 ;i++)
     {
         for(int j = 0 ; j < m ;j++)
         {
-            sum += sum + v[i][j];
+            sum += arr[i][j] + arr[i+1][j+1];
+            v.push_back(sum);
         }
     }
-     for(int j = m ; j > 0 ;j--)
+     for(int i = n-1 ; i >= 0 ;i--)
     {
-        for(int i = n ; i > 0 ;i--)
+        for(int j = n ; j >= 0 ;j--)
         {
-            sum2 += sum + v[j][i];
+            sum2 += sum + arr[j][i];
         }
     }
     cout << max(sum, sum2) << endl;
