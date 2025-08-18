@@ -8,29 +8,25 @@ int main() {
     while (tt--) {
         int n;
         cin >> n;
-        vector<int> v(n);
+        vector<long long> v(n);
 
         for (int i = 0; i < n; i++) {
             cin >> v[i];
         }
 
-        long long sum = v[0];
-        long long maxi = v[0];
-        int par = abs(v[0]) % 2;
+        long long ans = v[0], sum = v[0], mn = min(0LL, v[0]);
 
-        for (int i = 1; i < n; i++) {
-            if (abs(v[i]) % 2 != par) {
-                sum += v[i];
-            } else {
-                maxi = max(maxi, sum);
-                sum = v[i];
+        for (int i = 1; i < n; ++i) {
+            if (abs(v[i] % 2) == abs(v[i - 1] % 2)) {
+                sum = 0;
+                mn = 0;
             }
-            par = abs(v[i]) % 2;
+            sum += v[i];
+            ans = max(ans, sum - mn);
+            mn = min(mn, sum);
         }
 
-        maxi = max(maxi, sum);
-
-        cout << maxi << endl;
+        cout << ans << endl;
     }
 
     return 0;
