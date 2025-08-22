@@ -41,11 +41,26 @@ void fahad()
     cin >> n;
     string s;
     cin >> s;
-    se.clear();
 
-    generateAll(s);
+    vector<int>first(26,-1);
+    for(int i = 0 ; i < n ;i++)
+    {
+        if(first[s[i] - 'a']  == -1)
+        {
+            first[s[i] - 'a'] =  i;
+        }
+    }
 
-    cout << se.size() << endl;
+    ll ans = 0;
+
+    for(int c = 0 ; c < 26 ;c++)
+    {
+        if(first[c] != -1)
+        {
+            ans += (n - first[c]);
+        }
+    }
+    cout << ans << endl;
 }
 
 int main()
